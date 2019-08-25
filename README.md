@@ -1,27 +1,42 @@
-# TaskList
+<p align="center">
+    <img src="./readme/preview.png" alt="Extension preview"/>
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
+## Table of contents
+* [General info](#general-info)
+* [Code organization](#code-organization)
+* [Acknowledgements](#acknowledgements)
+* [Setup](#setup)
 
-## Development server
+## General info
+This Angular project is an App for Project Managers to manage task list with use of [Angular Material](https://material.angular.io).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+At this moment it contains following features:
+* Home page
+* Task List
+* Adding a Task
+* View details of a Task
+* Removing task
+* Edit task *(soon)*
 
-## Code scaffolding
+## Code organization
+    .
+    ├── data                      # Data service
+    ├── task-details              # Component responsible for representing a Single Task details
+    ├── task-dialog               # Component responsible for representing a Dialog to add new Task
+    ├── task-list                 # Component responsible for representing a Task List
+    ├── welcome                   # Component responsible for representing Welcome Page
+    ├── material.module.ts        # Module to centralize all Angular Materials
+    └── Task.ts                   # Interface to represent instances of task list
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Acknowledgements
+* [HAMMER.JS](https://hammerjs.github.io)
+* [Angular Material](https://material.angular.io)
+* [Material Icons](https://material.io/resources/icons)
+    
+## Setup
+To run project:
+```
+npm i
+npm start
+```

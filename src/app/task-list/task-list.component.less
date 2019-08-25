@@ -1,0 +1,50 @@
+mat-cell, mat-footer-cell, mat-header-cell{
+  justify-content: center;
+}
+
+.card {
+  min-width: 80%;
+  
+  @media (max-width: 600px) {
+    min-width: 98%;
+  }
+}
+
+.cdk-column-title{
+  @media (max-width: 600px) {
+    padding-left: 24px;
+  }
+}
+
+.cdk-column-added_date, .cdk-column-position{
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.mat-card{
+  margin-bottom: 10px;
+  padding: 40px;
+  padding-top: 0;
+
+  @media (max-width: 600px) {
+    padding: 0px;
+  }
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 100%;
+
+  .mat-cell{
+    a {
+      margin-right: 10px
+    }
+  }
+}
+
+a {
+  cursor: pointer;
+}

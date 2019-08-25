@@ -1,0 +1,93 @@
+<h1 mat-dialog-title>{{data}}</h1>
+<div mat-dialog-content>
+  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="taskForm" #userForm="ngForm" novalidate>
+    
+    <!-- Title input -->
+    <mat-form-field
+      [ngClass]="{
+        'has-danger': title.invalid && (title.dirty || title.touched),
+        'has-success': title.valid && (title.dirty || title.touched)
+      }">
+
+      <input matInput placeholder="Title" type="text" required name="title" [(ngModel)]="task.title"
+      formControlName="title"
+      required>
+
+      <div *ngIf="title.errors && (title.dirty || title.touched)" class="validation-feedback">
+          <div *ngIf="title.errors.required" class="alert alert-danger">This field is required!</div>
+          <div *ngIf="title.errors.pattern" class="alert alert-danger">Invalid chars - only letters allowed!</div>
+      </div>
+    </mat-form-field>
+
+    <!-- Description Input -->
+    <mat-form-field
+      [ngClass]="{
+        'has-danger': description.invalid && (description.dirty || description.touched),
+        'has-success': description.valid && (description.dirty || description.touched)
+      }">
+
+      <textarea matInput placeholder="Description" required name="description" [(ngModel)]="task.description"
+      formControlName="description"
+      required></textarea>
+
+      <div *ngIf="description.errors && (description.dirty || description.touched)" class="validation-feedback">
+          <div *ngIf="description.errors.required" class="alert alert-danger">This field is required!</div>
+      </div>
+    </mat-form-field>
+    
+    <!-- Category Select -->
+    <mat-form-field
+      [ngClass]="{
+        'has-danger': category.invalid && (category.dirty || category.touched),
+        'has-success': category.valid && (category.dirty || category.touched)
+      }">
+
+      <mat-select matInput placeholder="Category" required name="category" [(ngModel)]="task.category"
+      formControlName="category"
+      required>
+        <mat-option *ngFor="let category of categories" [value]="category.value">
+          {{ category.viewValue }}
+        </mat-option>
+      </mat-select>
+
+      <div *ngIf="category.errors && (category.dirty || category.touched)" class="validation-feedback">
+          <div *ngIf="category.errors.required" class="alert alert-danger">This field is required!</div>
+      </div>
+    </mat-form-field>
+
+    <!-- Type Radio -->
+    <div class="task-types"
+      [ngClass]="{
+        'has-danger': type.invalid && (type.dirty || type.touched),
+        'has-success': type.valid && (type.dirty || type.touched)
+      }">
+
+      <label>Typ * </label>
+      <mat-radio-group matInput aria-label="Select an option" required name="type" [(ngModel)]="task.type"
+      formControlName="type"
+      required>
+        <mat-radio-button *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-radio-button>
+      </mat-radio-group>
+      
+      <div *ngIf="type.errors && (type.dirty || type.touched)" class="validation-feedback">
+          <div *ngIf="type.errors.required" class="alert alert-danger">This field is required!</div>
+      </div>
+    </div>
+
+    <!-- Save button -->
+    <div id="submit_wrapper">
+      <button mat-raised-button type="submit" color="primary" [disabled]="!userForm.form.valid">Save</button>
+      <div id="not_validated" *ngIf="!userForm.form.valid">
+          Some fields are empty or incorrect!
+      </div>
+    </div>
+
+  </form>
+</div>
+
+<!-- Cancel button -->
+<div mat-dialog-actions>
+  <button mat-raised-button class="close" (click)="onNoClick()" color="warn">Cancel</button>
+</div>

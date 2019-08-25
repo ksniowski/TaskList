@@ -1,0 +1,66 @@
+.example-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.example-form>* {
+  width: 100%;
+}
+
+.task-types {
+  padding: 20px 0;
+
+  label {
+    font-size: 17px;
+    color: #878787;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  mat-radio-group{
+    display: block;
+  }
+
+  mat-radio-button {
+    margin-right: 25px
+  }
+}
+
+.close {
+  width: 100%;
+}
+
+button[disabled]{
+  cursor: not-allowed;
+}
+
+.validation-feedback{
+  position: absolute;
+  top: 6px;
+  color: #fff;
+  font-size: 11px;
+  right: 0;
+  background: #878787;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#submit_wrapper{
+  position: relative;
+
+  button{
+    width: 100%;
+  }
+
+  #not_validated{
+    position: absolute;
+    right: 5px;
+    top: 8px;
+    text-align: center;
+    color: #fff;
+    font-size: 11px;
+    background: #878787;
+    padding: 5px;
+    border-radius: 5px;
+  }
+}
